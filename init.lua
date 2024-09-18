@@ -160,6 +160,8 @@ vim.opt.scrolloff = 10
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+local map = vim.keymap.set
+
 -- remap <ESC>
 map("i", "jj", "<ESC>")
 
