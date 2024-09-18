@@ -160,6 +160,18 @@ vim.opt.scrolloff = 10
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- remap <ESC>
+map("i", "jj", "<ESC>")
+
+-- Make some keys more accessible from Swedish keyboard
+map({ "n", "v", "o" }, "ö", "[")
+map({ "n", "v", "o" }, "ä", "]")
+map({ "n", "v", "o" }, "Ö", "{")
+map({ "n", "v", "o" }, "Ä", "}")
+map({ "n", "v" }, "å", "^")
+map({ "n", "v" }, "Å", "~")
+map({ "n", "v" }, "€", "$")
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
