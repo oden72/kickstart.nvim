@@ -160,19 +160,17 @@ vim.opt.scrolloff = 10
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
-local map = vim.keymap.set
-
 -- remap <ESC>
-map("i", "jj", "<ESC>")
+vim.keymap.set('i', 'jj', '<ESC>')
 
 -- Make some keys more accessible from Swedish keyboard
-map({ "n", "v", "o" }, "ö", "[")
-map({ "n", "v", "o" }, "ä", "]")
-map({ "n", "v", "o" }, "Ö", "{")
-map({ "n", "v", "o" }, "Ä", "}")
-map({ "n", "v" }, "å", "^")
-map({ "n", "v" }, "Å", "~")
-map({ "n", "v" }, "€", "$")
+vim.keymap.set({ 'n', 'v', 'o' }, 'ö', '[', { remap = true })
+vim.keymap.set({ 'n', 'v', 'o' }, 'ä', ']', { remap = true })
+vim.keymap.set({ 'n', 'v', 'o' }, 'Ö', '{', { remap = true })
+vim.keymap.set({ 'n', 'v', 'o' }, 'Ä', '}', { remap = true })
+vim.keymap.set({ 'n', 'v' }, 'å', '^', { remap = true })
+vim.keymap.set({ 'n', 'v' }, 'Å', '~', { remap = true })
+vim.keymap.set({ 'n', 'v' }, '€', '$', { remap = true })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -857,7 +855,7 @@ require('lazy').setup({
   },
 
   -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = true } },
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
@@ -936,7 +934,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keym aps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
