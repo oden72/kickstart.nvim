@@ -588,6 +588,21 @@ require('lazy').setup({
             })
           end
 
+          if client and client.name == 'ruff' then
+            -- Disable hover in favor of basedpyright
+            client.server_capabilities.hoverProvider = false
+            local organize_Imports = function()
+              vim.lsp.buf.code_action {
+                apply = true,
+                context = {
+                  only = { 'source.organizeImports' },
+                  diagnostics = {},
+                },
+              }
+            end
+            map('<leader>co', organize_Imports, '[O]rganize imports')
+          end
+
           -- The following code creates a keymap to toggle inlay hints in your
           -- code, if the language server you are using supports them
           --
@@ -641,6 +656,27 @@ require('lazy').setup({
               },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
               -- diagnostics = { disable = { 'missing-fields' } },
+            },
+          },
+        },
+        ruff = {
+          init_options = {
+            settings = {
+              logLevel = 'error',
+            }, -- Ruff language serve settings go here
+          },
+        },
+        basedpyright = {
+          settings = {
+            pyright = {
+              -- using Ruff's import organizer
+              disableOrganizeImports = true,
+            },
+            python = {
+              analysis = {
+                -- Ignore all files for analysis to exclusively use Ruff for linting
+                ignore = { '*' },
+              },
             },
           },
         },
