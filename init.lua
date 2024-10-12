@@ -927,6 +927,7 @@ require('lazy').setup({
       end
 
       require('mini.notify').setup()
+      vim.notify = require('mini.notify').make_notify()
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
