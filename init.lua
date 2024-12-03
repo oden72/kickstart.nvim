@@ -661,27 +661,27 @@ require('lazy').setup({
             },
           },
         },
-        ruff = {
-          init_options = {
-            settings = {
-              logLevel = 'error',
-            }, -- Ruff language serve settings go here
-          },
-        },
-        basedpyright = {
-          settings = {
-            pyright = {
-              -- using Ruff's import organizer
-              disableOrganizeImports = true,
-            },
-            python = {
-              analysis = {
-                -- Ignore all files for analysis to exclusively use Ruff for linting
-                ignore = { '*' },
-              },
-            },
-          },
-        },
+        -- ruff = {
+        --   init_options = {
+        --     settings = {
+        --       logLevel = 'error',
+        --     }, -- Ruff language serve settings go here
+        --   },
+        -- },
+        -- basedpyright = {
+        --   settings = {
+        --     pyright = {
+        --       -- using Ruff's import organizer
+        --       disableOrganizeImports = true,
+        --     },
+        --     python = {
+        --       analysis = {
+        --         -- Ignore all files for analysis to exclusively use Ruff for linting
+        --         ignore = { '*' },
+        --       },
+        --     },
+        --   },
+        -- },
       }
 
       -- Ensure the servers and tools above are installed
