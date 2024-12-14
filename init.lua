@@ -171,6 +171,7 @@ vim.keymap.set({ 'n', 'v', 'o' }, 'Ä', '}', { remap = true })
 vim.keymap.set({ 'n', 'v' }, 'å', '^', { remap = true })
 vim.keymap.set({ 'n', 'v' }, 'Å', '~', { remap = true })
 vim.keymap.set({ 'n', 'v' }, '€', '$', { remap = true })
+vim.keymap.set({ 'n', 'v' }, '<C-å>', '<C-^>', { remap = true })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
